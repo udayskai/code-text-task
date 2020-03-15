@@ -1,13 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class InfoPage extends Component {
 
-  render() {
-    return (
-      <div className="" style={{ border: "2px solid black", marginTop: "110px" }}>
-        <h4>Infopage</h4>
-        <h1>{this.props.props}</h1>
-      </div>
-    );
-  }
+// function based component only uses props data
+const InfoPage = (props) => {
+
+  return (
+    <div className="" style={{ border: "2px solid black", marginTop: "110px" }}>
+      <h4>Infopage</h4>
+      <h1>{props.props}</h1>
+    </div>
+  );
 }
+
+
+export default InfoPage;

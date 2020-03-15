@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Dropdown } from "react-bootstrap";
-import InfoPage from '../InfoPage';
+import InfoPage from './InfoPage';
 
 
 
@@ -11,10 +11,14 @@ class DropdownPage extends Component {
       data: "Default : Please select from dropdown for dynamic data"
     }
   }
+
+
+  //on Click handler
   onClickMethod = (e) => {
     console.log(e)
     this.setState({ data: e })
   }
+
 
   render() {
     return (
@@ -22,7 +26,7 @@ class DropdownPage extends Component {
         <Dropdown>
           <Dropdown.Toggle variant="dark" id="dropdown-basic" size="lg">
             Dropdown Button
-        </Dropdown.Toggle>
+          </Dropdown.Toggle>
 
           <Dropdown.Menu style={{ backgroundColor: "pink" }}>
             <Dropdown.Item href="#/action-1" onClick={() => { this.onClickMethod("Action") }}>Action</Dropdown.Item>
@@ -31,6 +35,7 @@ class DropdownPage extends Component {
           </Dropdown.Menu>
         </Dropdown>
 
+        {/* passing data to infopage as a props */}
         <InfoPage props={this.state.data} />
       </div>
     );

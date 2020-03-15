@@ -2,27 +2,28 @@ import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 
-import DropdownPage from "./component/homepage/Home/Home";
+import DropdownPage from "./component/homepage/Home";
 import Task from "./component/tast/Task";
 import User from "./component/User/User";
 import Navbar from "./component/homepage/navbar";
 
 function App() {
 
+  //  user restrictions not allowed to go any other routes
   let userData = window.localStorage.getItem("userData");
   if (userData === null) {
     return (
-      <div>
-        <h1>please login to accsess Page </h1>
-
+      <div className="mt-5">
+        <h1 className="text-center">please login to accsess Page </h1>
         <Route exact path="/" component={User} />
       </div>
     )
-  } else {
+  }
 
+  //user allow to navigate  when is Login !! but can't go back to login page
+  else {
     return (
       <div className="App">
-
         <Navbar />
         <Switch>
           <Route exact path="/" component={DropdownPage} />

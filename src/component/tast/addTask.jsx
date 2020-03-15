@@ -9,12 +9,11 @@ class Addtask extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
             Task: "",
             completed: "",
             show: false
         };
-        console.log("props", this.props)
+        // console.log("props", this.props)
     }
 
 
@@ -24,7 +23,7 @@ class Addtask extends Component {
     }
 
 
-    //on submit method
+    //Onsubmit method adding new array in local storage  with new array 
     onSubmitMethod = async (e) => {
         e.preventDefault()
         let taskData = window.localStorage.getItem('taskData');
@@ -33,7 +32,8 @@ class Addtask extends Component {
 
         window.localStorage.removeItem('taskData');
         let taskDataString = JSON.stringify([...dataold, data])
-        console.log(taskDataString, 'pop data finall work');
+        // console.log(taskDataString, 'pop data finall work');
+
         window.localStorage.setItem('taskData', taskDataString);
         window.location.reload()
     }
@@ -46,7 +46,6 @@ class Addtask extends Component {
     //on click method
     clickMethod = () => {
         this.setState({ show: false });
-
     }
 
 

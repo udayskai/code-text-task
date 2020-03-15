@@ -1,50 +1,50 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-// add dropdown
-//   <Drowdown />
-//           <Infopage />
-export default class Navbar extends Component {
 
+let Navbar = () => {
 
-  render() {
-    let userData = window.localStorage.getItem("userData");
-    let data = JSON.parse(userData)
-    console.log(data, "navbar")
+  // using local storage data to show UserName Information in navbar
+  let userData = window.localStorage.getItem("userData");
+  let data = JSON.parse(userData)
 
 
 
-    return (
-      <div className="mb-4">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-          <Link className="navbar-brand" to=""></Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <Link className="nav-item nav-link active" to="/Home">
-                Home <span className="sr-only">(current)</span>
+  return (
+    <div className="mb-4">
+      {/* navbar */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <Link className="navbar-brand" to=""></Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <Link className="nav-item nav-link active" to="/Home">
+              Home <span className="sr-only">(current)</span>
+            </Link>
+            <Link className="nav-item nav-link active" to="/Task">
+              Task
               </Link>
-              <Link className="nav-item nav-link active" to="/Task">
-                Task
+            <Link className="nav-item nav-link active" to="/User">
+              User
               </Link>
-              <Link className="nav-item nav-link active" to="/User">
-                User
-              </Link>
-            </div>
-            <h5 className="ml-5" style={{ color: "white" }}>{data.Username}</h5>
           </div>
-        </nav>
-      </div>
-    );
-  }
+          {/* userName */}
+          <h5 className="ml-5" style={{ color: "white" }}>{data.Username}</h5>
+        </div>
+      </nav>
+    </div>
+  );
 }
+
+
+export default Navbar;
